@@ -1,0 +1,84 @@
+@use "variables" as *;
+
+.variants {
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+
+  &__legend {
+    margin-bottom: 10px;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-heading;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+
+    @include from($bp-desktop) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}
+
+.variant {
+  position: relative;
+  display: block;
+  cursor: pointer;
+
+  // Радио скрыто визуально, но остаётся доступным с клавиатуры и для скринридеров
+  &__input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    height: 100%;
+    padding: 10px 12px;
+    border: 1px solid $color-border;
+    border-radius: $radius-s;
+    background: $color-surface;
+    transition: border-color $transition, background-color $transition, box-shadow $transition;
+  }
+
+  &__weight {
+    font-size: 15px;
+    font-weight: 700;
+    color: $color-heading;
+  }
+
+  &__price {
+    font-size: 12px;
+    color: $color-muted;
+    white-space: nowrap;
+  }
+
+  &:hover &__body {
+    border-color: $color-border-hover;
+  }
+
+  &__input:checked + &__body {
+    border-color: $color-green;
+    background: $color-green-light;
+    box-shadow: inset 0 0 0 1px $color-green;
+  }
+
+  &__input:checked + &__body &__price {
+    color: $color-text;
+  }
+
+  &__input:focus-visible + &__body {
+    outline: 2px solid $color-heading;
+    outline-offset: 2px;
+  }
+}

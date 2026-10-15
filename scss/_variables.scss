@@ -1,0 +1,38 @@
+// Палитра снята с teaboom.ru
+$color-text: #444;
+$color-heading: #202020;
+$color-muted: #808080;
+$color-border: #e6e6e6;
+$color-border-hover: #b3b3b3;
+$color-bg: #fbfbfb;
+$color-surface: #fff;
+$color-surface-alt: #f6f7f8;
+$color-cream: #fefcef;
+
+$color-accent: #f5d730;        // жёлтый — кнопки поиска и CTA
+$color-accent-hover: #e8c712;
+$color-green: #8db33a;         // зелёный — выбранная фасовка, «в наличии»
+$color-green-dark: #5a7a1a;     // для текста: контраст ≥ 4.5:1
+$color-green-light: #e9f2c3;
+$color-sale: #e02020;
+
+$font-base: "Open Sans", Arial, sans-serif;
+
+$radius-s: 6px;
+$radius-m: 12px;
+$radius-pill: 50px;
+
+$shadow-card: 0 4px 24px rgba(32, 32, 32, 0.06);
+$transition: 0.2s ease;
+
+$container: 1200px;
+
+// Брейкпоинты (mobile first)
+$bp-tablet: 768px;
+$bp-desktop: 1200px;
+
+@mixin from($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}

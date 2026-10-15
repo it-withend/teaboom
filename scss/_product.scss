@@ -1,0 +1,79 @@
+@use "variables" as *;
+
+.product {
+  display: grid;
+  gap: 24px;
+  padding: 16px;
+  background: $color-surface;
+  border-radius: $radius-m;
+  box-shadow: $shadow-card;
+
+  @include from($bp-tablet) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    padding: 24px;
+  }
+
+  @include from($bp-desktop) {
+    gap: 56px;
+    padding: 40px;
+  }
+
+  &__gallery {
+    @include from($bp-tablet) {
+      position: sticky;
+      top: 24px;
+    }
+  }
+
+  &__media {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border-radius: $radius-m;
+    background: $color-surface-alt;
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  &__category {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-green-dark;
+    transition: color $transition;
+
+    &:hover {
+      color: $color-heading;
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $color-heading;
+
+    @include from($bp-tablet) {
+      font-size: 28px;
+    }
+
+    @include from($bp-desktop) {
+      margin-bottom: 28px;
+      font-size: 32px;
+    }
+  }
+
+  &__about {
+    margin-top: 28px;
+  }
+}

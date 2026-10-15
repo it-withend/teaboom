@@ -1,0 +1,66 @@
+@use "variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $font-base;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $color-text;
+  background: $color-bg;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  max-width: $container;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @include from($bp-tablet) {
+    padding: 0 24px;
+  }
+}
+
+.page {
+  // Нижний отступ под фиксированную панель покупки на мобильных
+  padding: 16px 0 104px;
+
+  @include from($bp-tablet) {
+    padding: 24px 0 64px;
+  }
+}

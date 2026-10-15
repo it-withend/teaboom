@@ -1,0 +1,44 @@
+@use "variables" as *;
+
+.about {
+  padding-top: 24px;
+  border-top: 1px solid $color-border;
+
+  &__title {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 700;
+    color: $color-heading;
+  }
+
+  &__text {
+    margin: 0 0 16px;
+    line-height: 1.65;
+  }
+
+  &__specs {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+  }
+
+  &__spec {
+    display: grid;
+    gap: 2px;
+    font-size: 13px;
+
+    @include from($bp-tablet) {
+      grid-template-columns: 80px 1fr;
+      gap: 16px;
+    }
+
+    dt {
+      font-weight: 700;
+      color: $color-heading;
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+}
